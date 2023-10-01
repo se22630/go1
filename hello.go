@@ -11,9 +11,10 @@ func say(s int, c chan int) {
 }
 
 func main() {
-	chan1 := make(chan int)
+
 	for i := 1; i < 6; i++ {
-		go say(i, chan1)
+		channel := make(chan int, i)
+		go say(i, channel)
 	}
 	time.Sleep(1 * time.Second)
 }
